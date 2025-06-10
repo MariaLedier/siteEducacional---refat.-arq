@@ -1,25 +1,29 @@
 const mysql = require('mysql2');
 
-//refatorar a classe de banco seguindo o princípio de singleton
+//respeitando o padrão de singleton
 
 class Database {
+  static #instancia;
   #conexao;
 
-  get conexao() {
-    return this.#conexao;
-  }
-
-  set conexao(conexao) {
-    this.#conexao = conexao;
-  }
-
   constructor() {
+    if (Database.#instancia) {
+      return Database.#instancia;
+    }
+
     this.#conexao = mysql.createPool({
       host: '132.226.245.178',
       database: 'PFS1_10442416278',
       user: '10442416278',
-      password: '10442416278',
+      password: '10442416278'
     });
+
+    Database.#instancia = this;
+  }
+
+
+  get conexao() {
+    return this.#conexao;
   }
 
   ExecutaComando(sql, valores) {      //para fazer select
