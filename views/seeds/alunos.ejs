@@ -2,13 +2,12 @@
   <h1>Alunos</h1>
 
   <table class="mt-4 table table-striped">
-      <tr>Cadastrar Aluno</tr>
+      <button style="background-color: brown; color: white;" id="cadastrar">Cadastrar Aluno</button>
     <thead>
       <tr>
         <th>RA</th>
         <th>Nome</th>
         <th>Email</th>
-        <th>Série</th>
       </tr>
     </thead>
     <tbody>
@@ -17,9 +16,18 @@
         <td><%= listaAlunos[i].aluno_RA %></td>
         <td><%= listaAlunos[i].aluno_nome %></td>
         <td><%= listaAlunos[i].aluno_email %></td>
-        <td><%= listaSeries[listaAlunos[i].serie_id - 1].serie_nome %></td>
       </tr>
       <%} %>
     </tbody>
   </table>
 </div>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('cadastrar').addEventListener('click', function () {
+    window.location.href = 'professor/cadastroAluno';
+  });
+});
+
+</script>

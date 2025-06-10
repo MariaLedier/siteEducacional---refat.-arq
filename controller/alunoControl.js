@@ -1,8 +1,11 @@
-class AlunoControl {
-  home(req, res) {
-    res.render('seeds/alunos.ejs', { layout: './layouts/layoutSeeds.ejs' });
-  }
 
+const AlunoModel = require('../models/alunoModel.js');
+const SerieModel = require('../models/serieModel.js')
+
+class AlunoControl {
+ 
+
+  
   async listarAlunos(req, res) {
     let alunos = new AlunoModel();
     let listaAlunos = await alunos.listar();
@@ -10,8 +13,8 @@ class AlunoControl {
     let listaSeries = await series.listar();
     res.render('seeds/alunos.ejs', {
       layout: './layouts/layoutSeeds.ejs',
-      listaAlunos: listaAlunos,
-      listaSeries: listaSeries,
+      listaAlunos,
+      listaSeries
     });
   }
 

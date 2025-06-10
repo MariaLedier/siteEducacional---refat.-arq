@@ -1,0 +1,79 @@
+<div class="container mt-5 mb-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Cadastro de Aluno</h4>
+    </div>
+    <div class="card-body">
+      <form action="/alunos/cadastrar" method="POST" class="row g-4">
+
+        <div class="col-md-6">
+          <label for="aluno_RA" class="form-label">RA</label>
+          <input type="text" name="aluno_RA" id="aluno_RA" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_nome" class="form-label">Nome completo</label>
+          <input type="text" name="aluno_nome" id="aluno_nome" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_CPF" class="form-label">CPF</label>
+          <input type="text" name="aluno_CPF" id="aluno_CPF" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_nasc" class="form-label">Data de nascimento</label>
+          <input type="date" name="aluno_nasc" id="aluno_nasc" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_fone" class="form-label">Telefone</label>
+          <input type="text" name="aluno_fone" id="aluno_fone" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_email" class="form-label">E-mail</label>
+          <input type="email" name="aluno_email" id="aluno_email" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_mae" class="form-label">Nome da mãe</label>
+          <input type="text" name="aluno_mae" id="aluno_mae" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_pai" class="form-label">Nome do pai</label>
+          <input type="text" name="aluno_pai" id="aluno_pai" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_respCPF" class="form-label">CPF do responsável</label>
+          <input type="text" name="aluno_respCPF" id="aluno_respCPF" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_endereco" class="form-label">Endereço</label>
+          <input type="text" name="aluno_endereco" id="aluno_endereco" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_senha" class="form-label">Senha de acesso</label>
+          <input type="password" name="aluno_senha" id="aluno_senha" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="aluno_statusFinanceiro" class="form-label">Status financeiro</label>
+          <select name="aluno_statusFinanceiro" id="aluno_statusFinanceiro" class="form-select">
+            <option value="Regular">Regular</option>
+            <option value="Inadimplente">Inadimplente</option>
+          </select>
+        </div>
+        
+        <div class="col-12 text-end">
+          <button type="submit" id="cadastrar" class="btn btn-success">Cadastrar Aluno</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
