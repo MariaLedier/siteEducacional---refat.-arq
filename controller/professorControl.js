@@ -23,13 +23,13 @@
     });
   }
 
-   async viewLista(req, res) {
+  //  async viewLista(req, res) {
 
-    res.render('seeds/professor/alunos.ejs', {
-      layout: './layouts/layoutSeeds.ejs',
+  //   res.render('seeds/professor/alunos.ejs', {
+  //     layout: './layouts/layoutSeeds.ejs',
 
-    });
-  }
+  //   });
+  // }
 
 
   async viewCadastroAluno(req,res){
