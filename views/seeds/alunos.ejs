@@ -1,0 +1,24 @@
+<div class="p-4">
+  <h1>Alunos</h1>
+
+  <table class="mt-4 table table-striped">
+    <thead>
+      <tr>
+        <th>RA</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Série</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i = 0; i< listaAlunos.length; i ++) { %>
+      <tr>
+        <td><%= listaAlunos[i].aluno_RA %></td>
+        <td><%= listaAlunos[i].aluno_nome %></td>
+        <td><%= listaAlunos[i].aluno_email %></td>
+        <td><%= listaSeries[listaAlunos[i].serie_id - 1].serie_nome %></td>
+      </tr>
+      <%} %>
+    </tbody>
+  </table>
+</div>
