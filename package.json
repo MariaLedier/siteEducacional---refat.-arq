@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MariaLedier/siteEducacional---refat.-arq#readme",
   "description": "",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.1",
