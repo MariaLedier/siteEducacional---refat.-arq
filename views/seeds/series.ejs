@@ -1,30 +1,28 @@
-<script src="/js/seeds/series.js"></script>
-
 <div class="p-4">
-  <h1>Turmas</h1>
+  <h1>Séries</h1>
 
   <table class="mt-4 table table-striped table-hover">
     <thead>
       <tr>
-        <th>Disciplina</th>
-        <th>Série</th>
+        <th>Nome</th>
+        <th>Quantidade Máxima</th>
+        <th>Qautidade de alunos</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Desenvolver um for com as turmas -->
-      <% for(let i = 0; i< listaDisciplinas.length; i ++) { %>
-      <tr
-        class="disciplina-row"
-        data-disciplina_id="<%= listaDisciplinas[i].disciplina_id %>"
-        data-serie_id="<%= listaDisciplinas[i].serie_id %>"
-        style="cursor: pointer"
-      >
-        <td class="cursor-pointer">
-          <%= listaDisciplinas[i].disciplina_nome %>
-        </td>
-        <td><%= listaSeries[listaDisciplinas[i].serie_id - 1].serie_nome%></td>
-      </tr>
-      <%} %>
+      <% for(let i=0; i< listaSeries.length; i ++) { %>
+        <tr>
+          <td>
+            <%= listaSeries[i].serie_nome %>
+          </td>
+          <td>
+            <%= listaSeries[i].serie_quantMAX %>
+          </td>
+          <td>
+            <%= listaSeries[i].serie_quantidadeALU %>
+          </td>
+        </tr>
+        <%} %>
     </tbody>
   </table>
 </div>
