@@ -1,42 +1,29 @@
-  
+const SerieModel = require("../models/serieModel");
 
-  class ProfessorControl
-  {
-  //    async listagemProfessores(req, res) {
-  //   let alunoRA = req.session.usuario.userId;
+class ProfessorControl {
 
-  //   let alunoModel = new AlunoModel();
-  //   let professoresDisciplinas = await alunoModel.listarProfessoresEDisciplinas(alunoRA);
-
-  //   res.render('seeds/professores', {
-  //     layout: './layouts/layoutSeeds',
-  //     professoresDisciplinas: professoresDisciplinas
-  //   });
-  // }
-
-
-    async home(req, res) {
-
-    res.render('seeds/alunos.ejs', {
+  async listarSeries(req, res) {
+    let series = new SerieModel();
+    let listaSeries = series.listar();
+    res.render('seeds/professor/series.ejs', {
       layout: './layouts/layoutSeeds.ejs',
-
+      listaSeries: listaSeries
     });
   }
 
-  //  async viewLista(req, res) {
 
-  //   res.render('seeds/professor/alunos.ejs', {
-  //     layout: './layouts/layoutSeeds.ejs',
-
-  //   });
-  // }
-
-
-  async viewCadastroAluno(req,res){
-    res.render('seeds/professor/cadastrarAluno.ejs',{
-      layout: './layouts/layoutSeeds.ejs'})
+  async home(req, res) {
+    res.render('seeds/alunos.ejs', {
+      layout: './layouts/layoutSeeds.ejs',
+    });
   }
-  } module.exports = ProfessorControl;
+
+  async viewCadastroAluno(req, res) {
+    res.render('seeds/professor/cadastrarAluno.ejs', {
+      layout: './layouts/layoutSeeds.ejs'
+    })
+  }
   
-  
- 
+} module.exports = ProfessorControl;
+
+
