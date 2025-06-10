@@ -30,3 +30,5 @@ app.use('/seeds/aluno', rotaAluno);
 app.listen(porta, function () {
   console.log(`Servidor em execução na porta: ${porta}`);
 });
+
+//teste de commit clovis
