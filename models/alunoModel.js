@@ -96,30 +96,67 @@ class AlunoModel {
     return null;
   }
 
-  async obterPor(email) {
-    let sql = `select * FROM Alunos WHERE aluno_email = ?`
-    let valores = [email]
-    let banco = new Database();
-    let rows = await banco.ExecutaComando(sql, valores);
-    let lista = [];
-    for (let i = 0; i < rows.length; i++) {
-      lista.push(new AlunoModel(rows[i]["aluno_RA"],
-        rows[i]["aluno_nome"],
-        rows[i]["aluno_CPF"],
-        rows[i]["aluno_nasc"],
-        rows[i]["aluno_fone"],
-        rows[i]["aluno_email"],
-        rows[i]["aluno_mae"],
-        rows[i]["aluno_pai"],
-        rows[i]["aluno_respCPF"],
-        rows[i]["aluno_endereco"],
-        rows[i]["aluno_senha"],
-        rows[i]["aluno_statusFinanceiro"],
-      ))
-    }
-    return lista;
+async obterPor(ra) {
+  let sql = `select * FROM Alunos WHERE aluno_RA = ?`
+  let valores = [ra]
+  let banco = new Database();
+  let rows = await banco.ExecutaComando(sql, valores);
 
+  if (rows.length > 0) {
+    let row = rows[0];
+    return new AlunoModel(
+      row["aluno_RA"],
+      row["aluno_nome"],
+      row["aluno_CPF"],
+      row["aluno_nasc"],
+      row["aluno_fone"],
+      row["aluno_email"],
+      row["aluno_mae"],
+      row["aluno_pai"],
+      row["aluno_respCPF"],
+      row["aluno_endereco"],
+      row["aluno_senha"],
+      row["aluno_statusFinanceiro"],
+    );
   }
+  return null;
+}
+
+
+  async cadastrar() {
+  const sql = `
+    INSERT INTO Alunos (
+      aluno_RA, aluno_nome, aluno_CPF, aluno_nasc, aluno_fone, aluno_email,
+      aluno_mae, aluno_pai, aluno_respCPF, aluno_endereco, aluno_senha, aluno_statusFinanceiro
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  const valores = [
+    this.#aluno_RA,
+    this.#aluno_nome,
+    this.#aluno_CPF,
+    this.#aluno_nasc,
+    this.#aluno_fone,
+    this.#aluno_email,
+    this.#aluno_mae,
+    this.#aluno_pai,
+    this.#aluno_respCPF,
+    this.#aluno_endereco,
+    this.#aluno_senha,
+    this.#aluno_statusFinanceiro,
+  ];
+
+  const banco = new Database();
+
+  try {
+    await banco.ExecutaComandoNonQuery(sql, valores);
+    return true;
+  } catch (erro) {
+    console.error("Erro ao cadastrar aluno:", erro);
+    return false;
+  }
+}
+
 
 
 }

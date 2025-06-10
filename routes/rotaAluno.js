@@ -7,9 +7,10 @@ const router = express.Router();
 let ctrl = new alunoControl();
 let auth = new AuthMiddleware();
 
+router.post('/cadastrar',auth.validar,ctrl.cadastrarAluno)
 // Rotas básicas do aluno
 // router.get('/', auth.validar, ctrl.home);
-// router.get('/atividades', auth.validar, ctrl.listagemAlunoDisciplina);
+// router.get('/atividades', auth.valaidar, ctrl.listagemAlunoDisciplina);
 // router.get('/professores',auth.validar, ctrl.listagemProfessores);
 
 

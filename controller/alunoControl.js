@@ -3,9 +3,9 @@ const AlunoModel = require('../models/alunoModel.js');
 const SerieModel = require('../models/serieModel.js')
 
 class AlunoControl {
- 
 
-  
+
+
   async listarAlunos(req, res) {
     let alunos = new AlunoModel();
     let listaAlunos = await alunos.listar();
@@ -19,9 +19,49 @@ class AlunoControl {
   }
 
   //INSERT DE ALUNOS
-  async insertAluno(req,res){
+  async cadastrarAluno(req, res) {
+    // Validação básica dos campos obrigatórios
+    if (
+      req.body.aluno_RA &&
+      req.body.aluno_nome &&
+      req.body.aluno_CPF &&
+      req.body.aluno_nasc &&
+      req.body.aluno_senha 
+    ) {
+      const alunoModel = new AlunoModel();
 
+      // Verifica se já existe um aluno com esse RA
+      const alunoExistente = await alunoModel.obterPor(req.body.aluno_RA);
+
+      if (!alunoExistente) {
+        // Preenche os atributos do model
+        alunoModel.aluno_RA = req.body.aluno_RA;
+        alunoModel.aluno_nome = req.body.aluno_nome;
+        alunoModel.aluno_CPF = req.body.aluno_CPF;
+        alunoModel.aluno_nasc = req.body.aluno_nasc;
+        alunoModel.aluno_fone = req.body.aluno_fone || null;
+        alunoModel.aluno_email = req.body.aluno_email || null;
+        alunoModel.aluno_mae = req.body.aluno_mae || null;
+        alunoModel.aluno_pai = req.body.aluno_pai || null;
+        alunoModel.aluno_respCPF = req.body.aluno_respCPF || null;
+        alunoModel.aluno_endereco = req.body.aluno_endereco || null;
+        alunoModel.aluno_senha = req.body.aluno_senha;
+
+        const cadastrado = await alunoModel.cadastrar();
+
+        if (cadastrado) {
+          res.send({ ok: true });
+        } else {
+          res.send({ ok: false, msg: "Erro ao cadastrar o aluno no banco de dados!" });
+        }
+      } else {
+        res.send({ ok: false, msg: "Aluno já existente (RA duplicado)." });
+      }
+    } else {
+      res.send({ ok: false, msg: "Preencha todos os campos obrigatórios corretamente!" });
+    }
   }
+
 
   //deleção
 
