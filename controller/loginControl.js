@@ -1,7 +1,7 @@
 const AlunoModel = require('../models/alunoModel');
 const ProfessorModel = require('../models/professorModel');
 
-class LoginController {
+class LoginControl {
   loginView(req, res) {
     res.render('login.ejs', { layout: false });
   }
@@ -44,4 +44,4 @@ class LoginController {
   }
 }
 
-module.exports = LoginController;
+module.exports = LoginControl;

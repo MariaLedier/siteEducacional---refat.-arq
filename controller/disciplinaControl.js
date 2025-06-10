@@ -1,3 +1,5 @@
+class DisciplinaControl {
+   
   async discipinaInfo(req, res) {
     // renderiza info das disciplinas + atividades já existentes
     const { disciplinaId, serieId } = req.params;
@@ -18,3 +20,19 @@
       listaAtividades,
     });
   }
+  
+
+  //inserção
+
+  //deleção
+
+  //alteração
+
+}
+
+module.exports = DisciplinaControl;  
+  
+  
+  
+  
+ 

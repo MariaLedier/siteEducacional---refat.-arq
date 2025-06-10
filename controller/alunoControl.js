@@ -1,4 +1,4 @@
-class AlunoController {
+class AlunoControl {
   home(req, res) {
     res.render('seeds/main.ejs', { layout: './layouts/layoutSeeds.ejs' });
   }
@@ -23,4 +23,4 @@ class AlunoController {
 
 }
 
-module.exports = AlunoController;
+module.exports = AlunoControl;

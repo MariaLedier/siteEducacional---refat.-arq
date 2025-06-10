@@ -1,4 +1,4 @@
-class HomeController {
+class HomeControl {
   home(req, res) {
     res.render('home.ejs', { layout: './layouts/layout.ejs' });
   }
@@ -32,4 +32,4 @@ class HomeController {
   }
 }
 
-module.exports = HomeController;
+module.exports = HomeControl;

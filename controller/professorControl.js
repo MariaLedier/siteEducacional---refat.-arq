@@ -1,4 +1,7 @@
-  async listagemProfessores(req, res) {
+  
+  class ProfessorControl
+  {
+     async listagemProfessores(req, res) {
     let alunoRA = req.session.usuario.userId;
 
     let alunoModel = new AlunoModel();
@@ -9,3 +12,7 @@
       professoresDisciplinas: professoresDisciplinas
     });
   }
+  } module.exports = ProfessorControl;
+  
+  
+ 
