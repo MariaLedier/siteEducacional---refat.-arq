@@ -13,7 +13,7 @@ class AlunoModel {
   #aluno_endereco;
   #aluno_senha;
   #aluno_statusFinanceiro;
-  #serie_id;
+
 
   get aluno_RA() { return this.#aluno_RA } set aluno_RA(value) { this.#aluno_RA = value }
   get aluno_nome() { return this.#aluno_nome } set aluno_nome(value) { this.#aluno_nome = value }
@@ -27,9 +27,9 @@ class AlunoModel {
   get aluno_endereco() { return this.#aluno_endereco } set aluno_endereco(value) { this.#aluno_endereco = value }
   get aluno_senha() { return this.#aluno_senha } set aluno_senha(value) { this.#aluno_senha = value }
   get aluno_statusFinanceiro() { return this.#aluno_statusFinanceiro } set aluno_statusFinanceiro(value) { this.#aluno_statusFinanceiro = value }
-  get serie_id() { return this.#serie_id } set serie_id(value) { this.#serie_id = value }
+ 
 
-  constructor(aluno_RA, aluno_nome, aluno_CPF, aluno_nasc, aluno_fone, aluno_email, aluno_mae, aluno_pai, aluno_respCPF, aluno_endereco, aluno_senha, aluno_statusFinanceiro, serie_id) {
+  constructor(aluno_RA, aluno_nome, aluno_CPF, aluno_nasc, aluno_fone, aluno_email, aluno_mae, aluno_pai, aluno_respCPF, aluno_endereco, aluno_senha, aluno_statusFinanceiro) {
     this.aluno_RA = aluno_RA;
     this.aluno_nome = aluno_nome;
     this.aluno_CPF = aluno_CPF;
@@ -42,7 +42,7 @@ class AlunoModel {
     this.aluno_endereco = aluno_endereco;
     this.aluno_senha = aluno_senha;
     this.aluno_statusFinanceiro = aluno_statusFinanceiro;
-    this.serie_id = serie_id;
+  
   }
 
   async listar() {
@@ -63,7 +63,7 @@ class AlunoModel {
         rows[i]["aluno_endereco"],
         rows[i]["aluno_senha"],
         rows[i]["aluno_statusFinanceiro"],
-        rows[i]["serie_id"],
+
       ))
     }
     return lista;
@@ -90,7 +90,7 @@ class AlunoModel {
         row["aluno_endereco"],
         row["aluno_senha"],
         row["aluno_statusFinanceiro"],
-        row["serie_id"],
+    
       )
     }
     return null;
@@ -115,7 +115,6 @@ class AlunoModel {
         rows[i]["aluno_endereco"],
         rows[i]["aluno_senha"],
         rows[i]["aluno_statusFinanceiro"],
-        rows[i]["serie_id"],
       ))
     }
     return lista;

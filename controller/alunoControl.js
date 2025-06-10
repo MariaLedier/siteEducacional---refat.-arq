@@ -1,6 +1,6 @@
 class AlunoControl {
   home(req, res) {
-    res.render('seeds/main.ejs', { layout: './layouts/layoutSeeds.ejs' });
+    res.render('seeds/alunos.ejs', { layout: './layouts/layoutSeeds.ejs' });
   }
 
   async listarAlunos(req, res) {
@@ -15,7 +15,10 @@ class AlunoControl {
     });
   }
 
-  //inserção
+  //INSERT DE ALUNOS
+  async insertAluno(req,res){
+
+  }
 
   //deleção
 

@@ -1,10 +1,10 @@
 const express = require('express');
-const alunoController = require('../controller/alunoController');
+const alunoControl = require('../controller/alunoControl');
 const AuthMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-let ctrl = new alunoController();
+let ctrl = new alunoControl();
 let auth = new AuthMiddleware();
 
 // Rotas básicas do aluno
