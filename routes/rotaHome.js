@@ -1,9 +1,9 @@
 const express = require('express');
-const HomeController = require('../controller/homeController');
+const HomeControl = require('../controller/homeControl');
 
 const router = express.Router();
 
-let ctrl = new HomeController();
+let ctrl = new HomeControl();
 router.get('/', ctrl.home);
 router.get('/contato', ctrl.contato);
 router.get('/sobre', ctrl.sobre);

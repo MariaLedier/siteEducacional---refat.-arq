@@ -9,8 +9,8 @@ let auth = new AuthMiddleware();
 
 // Rotas básicas do aluno
 router.get('/', auth.validar, ctrl.home);
-router.get('/atividades', auth.validar, ctrl.listagemAlunoDisciplina);
-router.get('/professores',auth.validar, ctrl.listagemProfessores);
+// router.get('/atividades', auth.validar, ctrl.listagemAlunoDisciplina);
+// router.get('/professores',auth.validar, ctrl.listagemProfessores);
 
 
 module.exports = router;
