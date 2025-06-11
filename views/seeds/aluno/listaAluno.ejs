@@ -31,13 +31,13 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('cadastrar').addEventListener('click', function () {
-      window.location.href = '/seeds/professor/cadastroAluno';
+      window.location.href = '/seeds/aluno/cadastrar';
     });
 
     document.querySelectorAll('.btn-editar').forEach(btn => {
       btn.addEventListener('click', function () {
         const alunoRA = this.dataset.id;
-        window.location.href = `/seeds/professor/cadastroAluno?ra=${alunoRA}`;
+        window.location.href = `/seeds/aluno/cadastroAluno?ra=${alunoRA}`;
       });
     });
   });

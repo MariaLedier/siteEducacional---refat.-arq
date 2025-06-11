@@ -1,6 +1,5 @@
 
 const AlunoModel = require('../models/alunoModel.js');
-const SerieModel = require('../models/serieModel.js')
 
 class AlunoControl {
 
@@ -8,15 +7,18 @@ class AlunoControl {
     res.render('seeds/aluno/home.ejs', { layout: './layouts/layoutSeeds.ejs' });
   }
 
+  async viewCadastroAluno(req, res) {
+    res.render('seeds/aluno/cadastrarAluno.ejs', {
+      layout: './layouts/layoutSeeds.ejs'
+    });
+  }
+
   async listarAlunos(req, res) {
     let alunos = new AlunoModel();
     let listaAlunos = await alunos.listar();
-    let series = new SerieModel();
-    let listaSeries = await series.listar();
-    res.render('seeds/alunos.ejs', {
+    res.render('seeds/aluno/listaAluno.ejs', {
       layout: './layouts/layoutSeeds.ejs',
-      listaAlunos,
-      listaSeries
+      listaAlunos: listaAlunos
     });
   }
 

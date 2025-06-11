@@ -1,0 +1,28 @@
+<div class="p-4">
+  <h1>Disciplinas</h1>
+
+  <table class="mt-4 table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data de nascimento</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i=0; i< listaProfessores.length; i ++) { %>
+        <tr>
+          <td>
+            <%= listaProfessores[i].professor_nome %>
+          </td>
+          <td>
+            <%= listaProfessores[i].professor_nasc %>
+          </td>
+          <td>
+            <%= listaProfessores[i].professor_email %>
+          </td>
+        </tr>
+        <%} %>
+    </tbody>
+  </table>
+</div>

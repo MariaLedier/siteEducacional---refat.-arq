@@ -1,12 +1,12 @@
 <div class="p-4">
-  <h1>Séries</h1>
+  <h1>Disciplinas</h1>
 
   <table class="mt-4 table table-striped table-hover">
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Quantidade Alunos</th>
         <th>Quantidade Máxima</th>
-        <th>Qautidade de alunos</th>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +16,10 @@
             <%= listaSeries[i].serie_nome %>
           </td>
           <td>
-            <%= listaSeries[i].serie_quantMAX %>
+            <%= listaSeries[i].serie_quantidadeALU %>
           </td>
           <td>
-            <%= listaSeries[i].serie_quantidadeALU %>
+            <%= listaSeries[i].serie_quantMAX %>
           </td>
         </tr>
         <%} %>

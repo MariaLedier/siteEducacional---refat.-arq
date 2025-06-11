@@ -1,12 +1,12 @@
 const express = require('express');
-const DisciplinaControl = require('../controller/disciplinaControl');
+const SerieControl = require('../controller/serieControl');
 const AuthMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-let ctrl = new DisciplinaControl();
+let ctrl = new SerieControl();
 let auth = new AuthMiddleware();
 
-router.get('/listar', auth.validar, ctrl.listar)
+router.get('/listar', auth.validar, ctrl.listar);
 
 module.exports = router;

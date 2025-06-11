@@ -1,29 +1,22 @@
-const SerieModel = require("../models/serieModel");
+const ProfessorModel = require("../models/professorModel");
 
 class ProfessorControl {
 
-  async listarSeries(req, res) {
-    let series = new SerieModel();
-    let listaSeries = series.listar();
-    res.render('seeds/professor/series.ejs', {
+  async listar(req, res){
+    let professor = new ProfessorModel();
+    let listaProfessores = professor.listar();
+    res.render = ('seeds/professor/listaProfessor.ejs',{
       layout: './layouts/layoutSeeds.ejs',
-      listaSeries: listaSeries
+      listaProfessores: listaProfessores
     });
   }
 
-
-  async home(req, res) {
+  home(req, res) {
     res.render('seeds/main.ejs', {
       layout: './layouts/layoutSeeds.ejs',
     });
   }
-
-  async viewCadastroAluno(req, res) {
-    res.render('seeds/professor/cadastrarAluno.ejs', {
-      layout: './layouts/layoutSeeds.ejs'
-    })
-  }
-  
+ 
 } module.exports = ProfessorControl;
 
 
