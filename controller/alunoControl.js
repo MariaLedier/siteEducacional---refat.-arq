@@ -4,7 +4,9 @@ const SerieModel = require('../models/serieModel.js')
 
 class AlunoControl {
 
-
+  async home(req, res) {
+    res.render('seeds/aluno/home.ejs', { layout: './layouts/layoutSeeds.ejs' });
+  }
 
   async listarAlunos(req, res) {
     let alunos = new AlunoModel();
@@ -63,22 +65,22 @@ class AlunoControl {
   }
 
 
-  
+
 
   //deleção
   async excluir(req, res) {
-  const ra = req.body.aluno_RA;
-  if (ra) {
-    const aluno = new AlunoModel();
-    const sucesso = await aluno.excluirPorRA(ra);
-    res.send({
-      ok: sucesso,
-      msg: sucesso ? "Aluno excluído com sucesso!" : "Erro ao excluir aluno!"
-    });
-  } else {
-    res.send({ ok: false, msg: "RA inválido para exclusão!" });
+    const ra = req.body.aluno_RA;
+    if (ra) {
+      const aluno = new AlunoModel();
+      const sucesso = await aluno.excluirPorRA(ra);
+      res.send({
+        ok: sucesso,
+        msg: sucesso ? "Aluno excluído com sucesso!" : "Erro ao excluir aluno!"
+      });
+    } else {
+      res.send({ ok: false, msg: "RA inválido para exclusão!" });
+    }
   }
-}
 
 
 

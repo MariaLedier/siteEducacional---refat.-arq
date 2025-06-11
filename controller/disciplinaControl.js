@@ -1,36 +1,16 @@
 const DisciplinaModel = require('../models/disciplinaModel.js');
-const SerieModel = require('../models/serieModel.js');
 
 class DisciplinaControl {
    
-
-
-  async discipinaInfo(req, res) {
-    // renderiza info das disciplinas + atividades já existentes
-    const { disciplinaId, serieId } = req.params;
-
+  async listar(req, res) {
     let disciplinas = new DisciplinaModel();
-    let listaDisciplinas = await disciplinas.obter(disciplinaId);
-    let series = new SerieModel();
-    let listaSeries = await series.listar();
-    // let atividades = new AtividadeProfessorModel();
-    // let listaAtividades = await atividades.listarAtividadesPor(
-    //   disciplinaId,
-    //   serieId
-    // );
-    res.render('seeds/disciplina.ejs', {
+    let listaDisciplinas = await disciplinas.listar();
+
+    res.render('seeds/disciplina/listaDisciplina.ejs', {
       layout: './layouts/layoutSeeds.ejs',
-      listaDisciplinas,
-      listaSeries,
+      listaDisciplinas : listaDisciplinas,
     });
   }
-  
-
-  //inserção
-
-  //deleção
-
-  //alteração
 
 }
 

@@ -5,6 +5,7 @@ const rotaHome = require('./routes/rotaHome');
 const rotaLogin = require('./routes/rotaLogin');
 const rotaProfessor = require('./routes/rotaProfessor');
 const rotaAluno = require('./routes/rotaAluno');
+const rotaDisciplina = require('./routes/rotaDisciplina');
 const app = express();
 const porta = 5000;
 
@@ -25,7 +26,8 @@ app.use(express.json());
 app.use('/', rotaHome);
 app.use('/login', rotaLogin);
 app.use('/seeds/professor', rotaProfessor);
-app.use('/seeds/aluno', rotaAluno); 
+app.use('/seeds/aluno', rotaAluno);
+app.use('/seeds/disciplinas', rotaDisciplina); 
 
 app.listen(porta, function () {
   console.log(`Servidor em execução na porta: ${porta}`);

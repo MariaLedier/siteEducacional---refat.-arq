@@ -1,0 +1,24 @@
+<div class="p-4">
+  <h1>Disciplinas</h1>
+
+  <table class="mt-4 table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Horário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i=0; i< listaSeries.length; i ++) { %>
+        <tr>
+          <td>
+            <%= listaDisciplinas[i].disciplina_nome %>
+          </td>
+          <td>
+            <%= listaDisciplinas[i].disciplina_horario %>
+          </td>
+        </tr>
+        <%} %>
+    </tbody>
+  </table>
+</div>
