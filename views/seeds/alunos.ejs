@@ -1,33 +1,46 @@
 <div class="p-4">
   <h1>Alunos</h1>
 
+  <button style="background-color: brown; color: white;" id="cadastrar">Cadastrar Aluno</button>
+
   <table class="mt-4 table table-striped">
-      <button style="background-color: brown; color: white;" id="cadastrar">Cadastrar Aluno</button>
     <thead>
       <tr>
         <th>RA</th>
         <th>Nome</th>
         <th>Email</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <% for(let i = 0; i< listaAlunos.length; i ++) { %>
-      <tr>
-        <td><%= listaAlunos[i].aluno_RA %></td>
-        <td><%= listaAlunos[i].aluno_nome %></td>
-        <td><%= listaAlunos[i].aluno_email %></td>
-      </tr>
-      <%} %>
+      <% for(let i = 0; i < listaAlunos.length; i++) { %>
+        <tr>
+          <td><%= listaAlunos[i].aluno_RA %></td>
+          <td><%= listaAlunos[i].aluno_nome %></td>
+          <td><%= listaAlunos[i].aluno_email %></td>
+          <td>
+            <button data-id="<%= listaAlunos[i].aluno_RA %>" class="btn btn-warning btn-editar">✏️</button>
+            <button data-id="<%= listaAlunos[i].aluno_RA %>" class="btn btn-danger btn-excluir">🗑️</button>
+          </td>
+        </tr>
+      <% } %>
     </tbody>
   </table>
 </div>
 
 <script>
-
   document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('cadastrar').addEventListener('click', function () {
-    window.location.href = 'professor/cadastroAluno';
-  });
-});
+    document.getElementById('cadastrar').addEventListener('click', function () {
+      window.location.href = '/seeds/professor/cadastroAluno';
+    });
 
+    document.querySelectorAll('.btn-editar').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const alunoRA = this.dataset.id;
+        window.location.href = `/seeds/professor/cadastroAluno?ra=${alunoRA}`;
+      });
+    });
+  });
 </script>
+
+<script src="/js/seeds/professor/listarAluno.js"></script>

@@ -8,6 +8,7 @@ let ctrl = new alunoControl();
 let auth = new AuthMiddleware();
 
 router.post('/cadastrar',auth.validar,ctrl.cadastrarAluno)
+router.post('/excluir',auth.validar,ctrl.excluir)
 // Rotas básicas do aluno
 // router.get('/', auth.validar, ctrl.home);
 // router.get('/atividades', auth.valaidar, ctrl.listagemAlunoDisciplina);

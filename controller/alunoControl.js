@@ -18,23 +18,23 @@ class AlunoControl {
     });
   }
 
-  //INSERT DE ALUNOS
+  // INSERT DE ALUNOS
   async cadastrarAluno(req, res) {
-    // Validação básica dos campos obrigatórios
+
     if (
       req.body.aluno_RA &&
       req.body.aluno_nome &&
       req.body.aluno_CPF &&
       req.body.aluno_nasc &&
-      req.body.aluno_senha 
+      req.body.aluno_senha
     ) {
       const alunoModel = new AlunoModel();
 
-      // Verifica se já existe um aluno com esse RA
+
       const alunoExistente = await alunoModel.obterPor(req.body.aluno_RA);
 
       if (!alunoExistente) {
-        // Preenche os atributos do model
+
         alunoModel.aluno_RA = req.body.aluno_RA;
         alunoModel.aluno_nome = req.body.aluno_nome;
         alunoModel.aluno_CPF = req.body.aluno_CPF;
@@ -63,7 +63,24 @@ class AlunoControl {
   }
 
 
+  
+
   //deleção
+  async excluir(req, res) {
+  const ra = req.body.aluno_RA;
+  if (ra) {
+    const aluno = new AlunoModel();
+    const sucesso = await aluno.excluirPorRA(ra);
+    res.send({
+      ok: sucesso,
+      msg: sucesso ? "Aluno excluído com sucesso!" : "Erro ao excluir aluno!"
+    });
+  } else {
+    res.send({ ok: false, msg: "RA inválido para exclusão!" });
+  }
+}
+
+
 
   //alteração
 

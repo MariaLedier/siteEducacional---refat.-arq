@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(res => {
         if (res.ok) {
           alert("Aluno cadastrado com sucesso!");
-          window.location.href = "/professor";
+          window.location.href = "/seeds/professor";
         } else {
           alert(res.msg || "Erro ao cadastrar aluno.");
         }

@@ -13,7 +13,7 @@ class ProfessorControl {
 
 
   async home(req, res) {
-    res.render('seeds/alunos.ejs', {
+    res.render('seeds/main.ejs', {
       layout: './layouts/layoutSeeds.ejs',
     });
   }
